@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctoyj3gql3axr"]
+
+[ext_resource type="Texture2D" uid="uid://csdxtogshty8y" path="res://assets/sprites/Object.png" id="1_i5d0l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00pva"]
+atlas = ExtResource("1_i5d0l")
+region = Rect2(288, 120, 168, 144)
+
+[node name="barn" type="Sprite2D"]
+position = Vector2(0, -12)
+texture = SubResource("AtlasTexture_00pva")
+offset = Vector2(0, -55)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, -54)
+polygon = PackedVector2Array(60, -6, 78, -6, 78, 36, 78, 54, 72, 60, 66, 60, 60, 60, 57, 63, 57, 66, 54, 69, 21, 69, 18, 63, -18, 63, -21, 69, -54, 69, -57, 66, -60, 63, -66, 63, -72, 60, -72, 57, -69, 54, -66, 54, -66, 54, -60, 54, -54, 48, -54, 6, -54, 0, -54, -24, 54, -24, 54, -9)

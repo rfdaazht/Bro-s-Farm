@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://buqwugvp3vo17"]
+
+[ext_resource type="Texture2D" uid="uid://c2iso70olejfs" path="res://assets/sprites/well.png" id="1_tkm45"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho4rt"]
+atlas = ExtResource("1_tkm45")
+
+[node name="well" type="Sprite2D"]
+position = Vector2(-12, -12)
+texture = SubResource("AtlasTexture_ho4rt")
+offset = Vector2(0, -16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, -18)
+polygon = PackedVector2Array(-12, 30, -11.9249, 30, 12, 30, 18, 27, 21, 27, 27, 24, 30, 18, 27, 12, 24, 9, 21, 6, 12, 3, -12, 3, -21, 6, -24, 9, -27, 12, -30, 18, -27, 24, -24, 27, -18, 27)

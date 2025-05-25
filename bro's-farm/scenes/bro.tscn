@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dob5w1a63txu2"]
+
+[ext_resource type="Script" uid="uid://ue5d0p3ecfpo" path="res://scripts/Bro.cs" id="1_w2a7b"]
+[ext_resource type="SpriteFrames" uid="uid://dlegnuwxcm3vv" path="res://tile_sets/player_sprite_frames.tres" id="2_rddn8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2a7b"]
+size = Vector2(14, 5)
+
+[node name="Bro" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_w2a7b")
+
+[node name="Bro_movement" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_rddn8")
+animation = &"sb_right"
+offset = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_w2a7b")
