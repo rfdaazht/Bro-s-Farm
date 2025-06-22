@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmgfmad1vnggo"]
+
+[ext_resource type="Texture2D" uid="uid://b6jspi0q5qrnw" path="res://assets/sprites/tile.png" id="1_sctnt"]
+[ext_resource type="Texture2D" uid="uid://eiw6hrok1lyy" path="res://assets/sprites/a popup.png" id="2_fallq"]
+[ext_resource type="Script" uid="uid://bp75gpbas8t35" path="res://scripts/Fence.cs" id="2_jgnqm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fallq"]
+atlas = ExtResource("1_sctnt")
+region = Rect2(24, 168, 96, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgnqm"]
+size = Vector2(36, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgnqm"]
+atlas = ExtResource("1_sctnt")
+region = Rect2(288, 144, 48, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiebw"]
+atlas = ExtResource("1_sctnt")
+region = Rect2(240, 144, 48, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hefh0"]
+atlas = ExtResource("1_sctnt")
+region = Rect2(192, 144, 48, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toa8d"]
+atlas = ExtResource("1_sctnt")
+region = Rect2(144, 144, 48, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bq1lw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgnqm")
+}],
+"loop": true,
+"name": &"grass_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiebw")
+}],
+"loop": true,
+"name": &"grass_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hefh0")
+}],
+"loop": true,
+"name": &"grass_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toa8d")
+}],
+"loop": true,
+"name": &"grass_3",
+"speed": 5.0
+}]
+
+[node name="fence2" type="Sprite2D"]
+y_sort_enabled = true
+texture = SubResource("AtlasTexture_fallq")
+offset = Vector2(0, -10)
+script = ExtResource("2_jgnqm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-12, -13)
+polygon = PackedVector2Array(-44, -16, 51, -16, 51, 3, -44, 3, -44, 7, 51, 7, 51, 27, 59, 27, 59, 11, 61, 11, 61, -25, -44, -25)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(57, 4)
+shape = SubResource("RectangleShape2D_jgnqm")
+
+[node name="ButtonHint" type="Sprite2D" parent="Area2D"]
+z_index = 2
+position = Vector2(60, -11)
+texture = ExtResource("2_fallq")
+
+[node name="Grass" type="AnimatedSprite2D" parent="."]
+position = Vector2(62, -9)
+sprite_frames = SubResource("SpriteFrames_bq1lw")
+animation = &"grass_2"

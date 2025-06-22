@@ -12,7 +12,7 @@ script = ExtResource("1_w2a7b")
 
 [node name="Bro_movement" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_rddn8")
-animation = &"sb_right"
+animation = &"idle_front"
 offset = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

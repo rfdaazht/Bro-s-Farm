@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://dshqgvfao5vxh"]
+
+[ext_resource type="Script" uid="uid://cvbmpdcgn35oj" path="res://scripts/PigFood.cs" id="1_ykjp4"]
+[ext_resource type="Texture2D" uid="uid://c3or8ghoi5chr" path="res://assets/sprites/pig_food.png" id="1_yxfqb"]
+[ext_resource type="Texture2D" uid="uid://ccsrsu0734pqr" path="res://assets/sprites/pig_food copy.png" id="2_jvis3"]
+[ext_resource type="Texture2D" uid="uid://eiw6hrok1lyy" path="res://assets/sprites/a popup.png" id="4_ubhsk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykjp4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6awrb"]
+atlas = ExtResource("2_jvis3")
+region = Rect2(0, 0, 24, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvis3"]
+atlas = ExtResource("1_yxfqb")
+region = Rect2(0, 0, 24, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxfqb"]
+atlas = ExtResource("1_yxfqb")
+region = Rect2(24, 0, 24, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubhsk"]
+atlas = ExtResource("1_yxfqb")
+region = Rect2(48, 0, 24, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nipjy"]
+atlas = ExtResource("1_yxfqb")
+region = Rect2(72, 0, 24, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pim2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6awrb")
+}],
+"loop": false,
+"name": &"food_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvis3")
+}],
+"loop": false,
+"name": &"food_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxfqb")
+}],
+"loop": false,
+"name": &"food_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubhsk")
+}],
+"loop": false,
+"name": &"food_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nipjy")
+}],
+"loop": false,
+"name": &"food_4",
+"speed": 5.0
+}]
+
+[node name="pig_food" type="Sprite2D"]
+texture = SubResource("AtlasTexture_ykjp4")
+offset = Vector2(0, -10)
+script = ExtResource("1_ykjp4")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
+sprite_frames = SubResource("SpriteFrames_pim2k")
+animation = &"food_0"
+offset = Vector2(0, 50)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D"]
+y_sort_enabled = true
+position = Vector2(0, 50)
+polygon = PackedVector2Array(-12, -44, -12, 43, 9, 43, 9, -44)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(15, 0)
+polygon = PackedVector2Array(0, 0, 24, 0, 24, 102, -18, 102, -18, 0)
+
+[node name="ButtonHint" type="Sprite2D" parent="Area2D"]
+position = Vector2(3, 42)
+texture = ExtResource("4_ubhsk")

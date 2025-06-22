@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://bwqmec27phxxj"]
 
 [ext_resource type="TileSet" uid="uid://badqs3phx1qtw" path="res://tile_sets/game_tile_set.tres" id="1_qvx2q"]
-[ext_resource type="PackedScene" uid="uid://dob5w1a63txu2" path="res://scenes/bro.tscn" id="2_kio6o"]
+[ext_resource type="PackedScene" uid="uid://dob5w1a63txu2" path="res://scenes/character/bro.tscn" id="2_kio6o"]
 
 [node name="game_scene" type="Node2D"]
 

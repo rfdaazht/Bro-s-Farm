@@ -6,51 +6,76 @@ public partial class Bro : CharacterBody2D
 	[Export] public float Speed = 77f;
 
 	private AnimatedSprite2D _anim;
-	private string _lastDirection = "down"; // Default menghadap bawah
+	private string _lastDirection;
 
 	public override void _Ready()
 	{
 		_anim = GetNode<AnimatedSprite2D>("Bro_movement");
-		PlayStandbyAnimation(_lastDirection); // Animasi awal saat game mulai
+		
+		_lastDirection = "down";
+		
+		PlayStandbyAnimation(_lastDirection);
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Vector2 direction = Vector2.Zero;
+		Vector2 inputDirection = Vector2.Zero;
 
-		// Cegah gerakan diagonal dengan prioritas urutan: atas, bawah, kiri, kanan
 		if (Input.IsActionPressed("ui_up"))
 		{
-			direction = Vector2.Up;
-			_lastDirection = "up";
+			inputDirection.Y -= 1;
 		}
-		else if (Input.IsActionPressed("ui_down"))
+		if (Input.IsActionPressed("ui_down"))
 		{
-			direction = Vector2.Down;
-			_lastDirection = "down";
+			inputDirection.Y += 1;
 		}
-		else if (Input.IsActionPressed("ui_left"))
+		if (Input.IsActionPressed("ui_left"))
 		{
-			direction = Vector2.Left;
-			_lastDirection = "left";
+			inputDirection.X -= 1;
 		}
-		else if (Input.IsActionPressed("ui_right"))
+		if (Input.IsActionPressed("ui_right"))
 		{
-			direction = Vector2.Right;
-			_lastDirection = "right";
+			inputDirection.X += 1;
 		}
 
-		// Gerakan & animasi
-		if (direction != Vector2.Zero)
+		if (inputDirection.Length() > 1.0f)
 		{
-			Velocity = direction * Speed;
-			MoveAndSlide();
+			inputDirection = inputDirection.Normalized();
+		}
+
+		Velocity = inputDirection * Speed;
+		MoveAndSlide();
+
+		if (inputDirection != Vector2.Zero)
+		{
+			if (inputDirection.X != 0 && inputDirection.Y != 0)
+			{
+				if (inputDirection.X > 0)
+					_lastDirection = "right";
+				else
+					_lastDirection = "left";
+			}
+			else
+			{
+				if (Mathf.Abs(inputDirection.X) > Mathf.Abs(inputDirection.Y))
+				{
+					if (inputDirection.X > 0)
+						_lastDirection = "right";
+					else
+						_lastDirection = "left";
+				}
+				else
+				{
+					if (inputDirection.Y > 0)
+						_lastDirection = "down";
+					else
+						_lastDirection = "up";
+				}
+			}
 			PlayMoveAnimation(_lastDirection);
 		}
 		else
 		{
-			Velocity = Vector2.Zero;
-			MoveAndSlide();
 			PlayStandbyAnimation(_lastDirection);
 		}
 	}

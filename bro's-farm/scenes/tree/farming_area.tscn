@@ -1,0 +1,402 @@
+[gd_scene load_steps=38 format=3 uid="uid://cwhwdptjf7t45"]
+
+[ext_resource type="Texture2D" uid="uid://csdxtogshty8y" path="res://assets/sprites/Object.png" id="1_3rax2"]
+[ext_resource type="Script" uid="uid://sxk2fq30td1n" path="res://scripts/FarmingArea.cs" id="1_utpes"]
+[ext_resource type="Script" uid="uid://beggh3sy2tlc4" path="res://scripts/Plot.cs" id="2_l4uvq"]
+[ext_resource type="Texture2D" uid="uid://k7o1wa7e5qi2" path="res://assets/sprites/sign.png" id="2_oanqo"]
+[ext_resource type="Texture2D" uid="uid://bqgfdwhwuvp6x" path="res://assets/sprites/plant.png" id="3_l4uvq"]
+[ext_resource type="Texture2D" uid="uid://eiw6hrok1lyy" path="res://assets/sprites/a popup.png" id="5_utpes"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utpes"]
+atlas = ExtResource("1_3rax2")
+region = Rect2(24, 192, 120, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4uvq"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3yxk"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbbms"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjvny"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnpa0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3yxk")
+}],
+"loop": true,
+"name": &"seed_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbbms")
+}],
+"loop": true,
+"name": &"seed_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjvny")
+}],
+"loop": true,
+"name": &"seed_2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utpes"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfu8j"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o50x1"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k568y"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_le0fr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfu8j")
+}],
+"loop": true,
+"name": &"seed_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o50x1")
+}],
+"loop": true,
+"name": &"seed_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k568y")
+}],
+"loop": true,
+"name": &"seed_2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3yxk"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5t8s"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yhxe"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goqp6"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35c13"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5t8s")
+}],
+"loop": true,
+"name": &"seed_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yhxe")
+}],
+"loop": true,
+"name": &"seed_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goqp6")
+}],
+"loop": true,
+"name": &"seed_2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbbms"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm3fh"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihhoo"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf0h7"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pm7ck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm3fh")
+}],
+"loop": true,
+"name": &"seed_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihhoo")
+}],
+"loop": true,
+"name": &"seed_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf0h7")
+}],
+"loop": true,
+"name": &"seed_2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjvny"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lahq"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0sf2"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sey7i"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v3s6n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lahq")
+}],
+"loop": true,
+"name": &"seed_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0sf2")
+}],
+"loop": true,
+"name": &"seed_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sey7i")
+}],
+"loop": true,
+"name": &"seed_2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnpa0"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqcc7"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40rhi"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6on1k"]
+atlas = ExtResource("3_l4uvq")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gi8hu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqcc7")
+}],
+"loop": true,
+"name": &"seed_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40rhi")
+}],
+"loop": true,
+"name": &"seed_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6on1k")
+}],
+"loop": true,
+"name": &"seed_2",
+"speed": 5.0
+}]
+
+[node name="FarmingArea" type="Node2D"]
+script = ExtResource("1_utpes")
+
+[node name="Ground" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_utpes")
+
+[node name="Plot1" type="Area2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_l4uvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plot1"]
+position = Vector2(-24, -10)
+shape = SubResource("RectangleShape2D_l4uvq")
+
+[node name="Highlight" type="Sprite2D" parent="Plot1"]
+position = Vector2(-24, -10)
+texture = ExtResource("2_oanqo")
+
+[node name="Seed" type="AnimatedSprite2D" parent="Plot1"]
+position = Vector2(-24, -11)
+sprite_frames = SubResource("SpriteFrames_nnpa0")
+animation = &"seed_2"
+
+[node name="ButtonHint" type="Sprite2D" parent="Plot1"]
+z_index = 2
+position = Vector2(-25, -18)
+texture = ExtResource("5_utpes")
+
+[node name="Plot2" type="Area2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_l4uvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plot2"]
+position = Vector2(-24, 9)
+shape = SubResource("RectangleShape2D_utpes")
+
+[node name="Highlight" type="Sprite2D" parent="Plot2"]
+position = Vector2(-24, 9)
+texture = ExtResource("2_oanqo")
+
+[node name="Seed" type="AnimatedSprite2D" parent="Plot2"]
+position = Vector2(-24, 8)
+sprite_frames = SubResource("SpriteFrames_le0fr")
+animation = &"seed_2"
+
+[node name="ButtonHint" type="Sprite2D" parent="Plot2"]
+z_index = 2
+position = Vector2(-25, 1)
+texture = ExtResource("5_utpes")
+
+[node name="Plot3" type="Area2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_l4uvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plot3"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_o3yxk")
+
+[node name="Highlight" type="Sprite2D" parent="Plot3"]
+position = Vector2(0, -10)
+texture = ExtResource("2_oanqo")
+
+[node name="Seed" type="AnimatedSprite2D" parent="Plot3"]
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_35c13")
+animation = &"seed_2"
+
+[node name="ButtonHint" type="Sprite2D" parent="Plot3"]
+z_index = 2
+position = Vector2(-1, -18)
+texture = ExtResource("5_utpes")
+
+[node name="Plot4" type="Area2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_l4uvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plot4"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_lbbms")
+
+[node name="Highlight" type="Sprite2D" parent="Plot4"]
+position = Vector2(0, 9)
+texture = ExtResource("2_oanqo")
+
+[node name="Seed" type="AnimatedSprite2D" parent="Plot4"]
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_pm7ck")
+animation = &"seed_2"
+
+[node name="ButtonHint" type="Sprite2D" parent="Plot4"]
+z_index = 2
+position = Vector2(-1, 1)
+texture = ExtResource("5_utpes")
+
+[node name="Plot5" type="Area2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_l4uvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plot5"]
+position = Vector2(24, -10)
+shape = SubResource("RectangleShape2D_kjvny")
+
+[node name="Highlight" type="Sprite2D" parent="Plot5"]
+position = Vector2(24, -10)
+texture = ExtResource("2_oanqo")
+
+[node name="Seed" type="AnimatedSprite2D" parent="Plot5"]
+position = Vector2(24, -11)
+sprite_frames = SubResource("SpriteFrames_v3s6n")
+animation = &"seed_2"
+
+[node name="ButtonHint" type="Sprite2D" parent="Plot5"]
+z_index = 2
+position = Vector2(23, -18)
+texture = ExtResource("5_utpes")
+
+[node name="Plot6" type="Area2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_l4uvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plot6"]
+position = Vector2(24, 9)
+shape = SubResource("RectangleShape2D_nnpa0")
+
+[node name="Highlight" type="Sprite2D" parent="Plot6"]
+position = Vector2(24, 9)
+texture = ExtResource("2_oanqo")
+
+[node name="Seed" type="AnimatedSprite2D" parent="Plot6"]
+position = Vector2(24, 8)
+sprite_frames = SubResource("SpriteFrames_gi8hu")
+animation = &"seed_2"
+
+[node name="ButtonHint" type="Sprite2D" parent="Plot6"]
+z_index = 2
+position = Vector2(23, 1)
+texture = ExtResource("5_utpes")

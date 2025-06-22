@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://be6voitwpn8r5"]
+
+[ext_resource type="Texture2D" uid="uid://ddhlipxidcmwr" path="res://assets/sprites/Cow.png" id="1_52fg6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15d52"]
+atlas = ExtResource("1_52fg6")
+region = Rect2(0, 48, 72, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmb38"]
+atlas = ExtResource("1_52fg6")
+region = Rect2(72, 48, 72, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwwuo"]
+atlas = ExtResource("1_52fg6")
+region = Rect2(144, 48, 72, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoxch"]
+atlas = ExtResource("1_52fg6")
+region = Rect2(0, 72, 72, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kdeq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15d52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmb38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwwuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoxch")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_52fg6"]
+radius = 4.0
+height = 42.0
+
+[node name="cow2" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4kdeq")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.356601
+offset = Vector2(0, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_52fg6")

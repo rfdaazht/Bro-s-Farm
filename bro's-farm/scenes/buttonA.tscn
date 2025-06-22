@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://blj6ogi1wa5xc"]
+
+[ext_resource type="Texture2D" uid="uid://v8w3exnhy75l" path="res://scenes/tree/a.png" id="1_kv32n"]
+[ext_resource type="Texture2D" uid="uid://bywub4ks2roha" path="res://scenes/tree/a press.png" id="2_km07r"]
+
+[node name="buttonA" type="TextureButton"]
+y_sort_enabled = true
+custom_minimum_size = Vector2(0, 24)
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+texture_normal = ExtResource("1_kv32n")
+texture_pressed = ExtResource("2_km07r")
+stretch_mode = 4

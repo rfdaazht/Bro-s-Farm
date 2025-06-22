@@ -1,20 +1,156 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckgkw84qq6mco"]
+[gd_scene load_steps=17 format=3 uid="uid://c056mnlny5e2g"]
 
-[ext_resource type="Texture2D" uid="uid://csdxtogshty8y" path="res://assets/sprites/Object.png" id="1_jdamk"]
+[ext_resource type="Texture2D" uid="uid://6lo0d0c0n11c" path="res://assets/sprites/coop.png" id="1_jdamk"]
+[ext_resource type="Script" uid="uid://cc3f1cyyrl6d6" path="res://scripts/Coop.cs" id="2_ygwpo"]
+[ext_resource type="Texture2D" uid="uid://chu5hwwtut65q" path="res://assets/sprites/b popup.png" id="3_t8cax"]
+[ext_resource type="Texture2D" uid="uid://bfcov7eukx0vc" path="res://assets/sprites/Egg.png" id="3_ygwpo"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_onreu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdamk"]
 atlas = ExtResource("1_jdamk")
-region = Rect2(168, 144, 72, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ie2n"]
-size = Vector2(66, 58)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8cax"]
+atlas = ExtResource("3_ygwpo")
+region = Rect2(0, 96, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy4ka"]
+atlas = ExtResource("3_ygwpo")
+region = Rect2(0, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utpfg"]
+atlas = ExtResource("3_ygwpo")
+region = Rect2(48, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jov2"]
+atlas = ExtResource("3_ygwpo")
+region = Rect2(0, 24, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v8ty"]
+atlas = ExtResource("3_ygwpo")
+region = Rect2(48, 24, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya5re"]
+atlas = ExtResource("3_ygwpo")
+region = Rect2(0, 48, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyx38"]
+atlas = ExtResource("3_ygwpo")
+region = Rect2(48, 48, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr2rt"]
+atlas = ExtResource("3_ygwpo")
+region = Rect2(0, 72, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa2fc"]
+atlas = ExtResource("3_ygwpo")
+region = Rect2(48, 72, 48, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r6xaq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8cax")
+}],
+"loop": true,
+"name": &"egg_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy4ka")
+}],
+"loop": true,
+"name": &"egg_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utpfg")
+}],
+"loop": true,
+"name": &"egg_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jov2")
+}],
+"loop": true,
+"name": &"egg_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v8ty")
+}],
+"loop": true,
+"name": &"egg_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya5re")
+}],
+"loop": true,
+"name": &"egg_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyx38")
+}],
+"loop": true,
+"name": &"egg_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr2rt")
+}],
+"loop": true,
+"name": &"egg_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa2fc")
+}],
+"loop": true,
+"name": &"egg_8",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygwpo"]
+size = Vector2(38.25, 30.5)
 
 [node name="coop" type="Sprite2D"]
-position = Vector2(0, -12)
-texture = SubResource("AtlasTexture_onreu")
+y_sort_enabled = true
+texture = SubResource("AtlasTexture_jdamk")
+offset = Vector2(0, -20)
+script = ExtResource("2_ygwpo")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 10)
-shape = SubResource("RectangleShape2D_1ie2n")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-33, -36, 18, -36, 18, -32.919, 18, -27, 30, -27, 33, -24, 33, 15, 12, 15, 9, 12, 6, 18, 3, 21, -18, 21, -21, 18, -24, 12, -27, 12, -30, 9, -33, 3)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-3, 0)
+polygon = PackedVector2Array(3, 0, 3, 0, 27, 0, 27, 24, 11, 24, 3, 32, -22, 32, -22, 24, -22, 0)
+
+[node name="ButtonHint" type="Sprite2D" parent="Area2D"]
+position = Vector2(-9, -30)
+texture = ExtResource("3_t8cax")
+
+[node name="EggRack" type="AnimatedSprite2D" parent="."]
+position = Vector2(18, 4)
+sprite_frames = SubResource("SpriteFrames_r6xaq")
+animation = &"egg_8"
+
+[node name="PickupArea" type="Area2D" parent="EggRack"]
+position = Vector2(39, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EggRack/PickupArea"]
+position = Vector2(-35.125, 29.75)
+shape = SubResource("RectangleShape2D_ygwpo")

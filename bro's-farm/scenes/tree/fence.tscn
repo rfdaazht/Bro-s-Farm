@@ -8,23 +8,23 @@ region = Rect2(0, 24, 168, 168)
 
 [node name="Sprite2D" type="Sprite2D"]
 texture = SubResource("AtlasTexture_ipdef")
-offset = Vector2(0, 40)
+offset = Vector2(0, -54)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-3, 45)
+position = Vector2(-2.89999, -48.5)
 polygon = PackedVector2Array(-63, -66, -63, 57, -60, 63, -45, 63, -45, 48, -45, -57, -48, -72, -60, -72)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(117, 39)
+position = Vector2(117.1, -54.5)
 polygon = PackedVector2Array(-69, -51, -69, 54, -51, 54, -51, -54, -72, -54)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(0, 39)
+position = Vector2(0.100006, -54.5)
 polygon = PackedVector2Array(-51, -66, 63, -66, 66, -60, 66, -54, -45, -54, -48, -51)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(21, 39)
+position = Vector2(21.1, -54.5)
 rotation = 3.14159
 polygon = PackedVector2Array(-41.9998, -69.0001, 69.0002, -68.9998, 69.0001, -53.9998, 66.0001, -56.9998, -23.9999, -57.0001, -26.9999, -54.0001, -44.9999, -54.0001, -44.9998, -63.0001)

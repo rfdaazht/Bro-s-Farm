@@ -1,10 +1,26 @@
-[gd_scene load_steps=3 format=4 uid="uid://du50eide2jjsk"]
+[gd_scene load_steps=18 format=4 uid="uid://du50eide2jjsk"]
 
+[ext_resource type="Script" uid="uid://driwpdfc2mbtd" path="res://scripts/GameScene.cs" id="1_tcjrq"]
 [ext_resource type="TileSet" uid="uid://badqs3phx1qtw" path="res://tile_sets/game_tile_set.tres" id="1_w5aja"]
-[ext_resource type="PackedScene" uid="uid://dob5w1a63txu2" path="res://scenes/bro.tscn" id="2_onqr8"]
+[ext_resource type="PackedScene" uid="uid://dob5w1a63txu2" path="res://scenes/character/bro.tscn" id="2_onqr8"]
+[ext_resource type="PackedScene" uid="uid://cg2uxmmn3f53y" path="res://scenes/tree/apple_tree.tscn" id="3_5ay1a"]
+[ext_resource type="PackedScene" uid="uid://dql8mansedkvw" path="res://scenes/character/chicken1.tscn" id="3_ycayy"]
+[ext_resource type="PackedScene" uid="uid://8ycxuc37dm5u" path="res://scenes/character/chicken2.tscn" id="4_y3j0m"]
+[ext_resource type="PackedScene" uid="uid://dq6bw7d1pasj4" path="res://scenes/character/chick.tscn" id="5_rurhu"]
+[ext_resource type="PackedScene" uid="uid://do7bwpqrh6vt1" path="res://scenes/character/sheep.tscn" id="6_rurhu"]
+[ext_resource type="PackedScene" uid="uid://1rtfata4brp3" path="res://scenes/character/pig.tscn" id="7_kk2rg"]
+[ext_resource type="PackedScene" uid="uid://blj6ogi1wa5xc" path="res://scenes/buttonA.tscn" id="8_utbpp"]
+[ext_resource type="PackedScene" uid="uid://dmxn7gvt5haol" path="res://scenes/buttonB.tscn" id="9_mw25s"]
+[ext_resource type="PackedScene" uid="uid://dshqgvfao5vxh" path="res://scenes/tree/pig_food.tscn" id="10_mw25s"]
+[ext_resource type="PackedScene" uid="uid://cwhwdptjf7t45" path="res://scenes/tree/farming_area.tscn" id="11_tqxxy"]
+[ext_resource type="PackedScene" uid="uid://c056mnlny5e2g" path="res://scenes/tree/coop.tscn" id="12_rvs2r"]
+[ext_resource type="PackedScene" uid="uid://bfsuy4rp20pur" path="res://scenes/joystick.tscn" id="14_mwyo0"]
+[ext_resource type="PackedScene" uid="uid://buqwugvp3vo17" path="res://scenes/tree/well.tscn" id="15_ldkr4"]
+[ext_resource type="PackedScene" uid="uid://ctoyj3gql3axr" path="res://scenes/tree/barn.tscn" id="16_liy57"]
 
 [node name="game_scene" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_tcjrq")
 
 [node name="tile_map" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -27,38 +43,116 @@ position = Vector2(-12, -12)
 tile_map_data = PackedByteArray("AAACABAAAwAAAAAAAQA=")
 tile_set = ExtResource("1_w5aja")
 
-[node name="apple_tree" type="TileMapLayer" parent="tile_map"]
-y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAKAAgAAwAAAAAAAgA=")
-tile_set = ExtResource("1_w5aja")
-
-[node name="barn" type="TileMapLayer" parent="tile_map"]
-y_sort_enabled = true
-position = Vector2(-24, 55)
-tile_map_data = PackedByteArray("AAAHAAQAAwAAAAAABAA=")
-tile_set = ExtResource("1_w5aja")
-
-[node name="well" type="TileMapLayer" parent="tile_map"]
-y_sort_enabled = true
-position = Vector2(0, 16)
-tile_map_data = PackedByteArray("AAAKAA0AAwAAAAAABQA=")
-tile_set = ExtResource("1_w5aja")
-
-[node name="coop" type="TileMapLayer" parent="tile_map"]
-position = Vector2(0, 24)
-tile_map_data = PackedByteArray("AAACAAIAAwAAAAAAAwA=")
+[node name="coop_dirt" type="TileMapLayer" parent="tile_map"]
+position = Vector2(0, 36)
+tile_map_data = PackedByteArray("AAACAAEAAAAHAAYAAAA=")
 tile_set = ExtResource("1_w5aja")
 
 [node name="fence" type="TileMapLayer" parent="tile_map"]
+z_index = 1
 y_sort_enabled = true
-position = Vector2(0, -41)
+position = Vector2(0, 53)
 tile_map_data = PackedByteArray("AAADAAsAAwAAAAAABgA=")
 tile_set = ExtResource("1_w5aja")
 
+[node name="grass" type="TileMapLayer" parent="tile_map"]
+tile_map_data = PackedByteArray("AAAKAAMABAAAAAAAAAALAAYABAAAAAAAAAAIAAsABAAAAAAAAAAKAA8ABAAAAAAAAAABABIABAAAAAAAAAAGABMABAABAAAAAAADABAABAABAAAAAAALABAABAABAAAAAAABAAcABAABAAAAAAAAAAQABAABAAAAAAADAAEABAABAAAAAAAAAAAABAACAAAAAAALAAEABAACAAAAAAAIAAcABAACAAAAAAAIAAwABAAAAAEAAAAKABMABAAAAAEAAAAGAA4ABAAAAAEAAAADABIABAABAAEAAAAJAAkABAABAAEAAAAJAAIABAABAAEAAAA=")
+tile_set = ExtResource("1_w5aja")
+
 [node name="Bro" parent="." instance=ExtResource("2_onqr8")]
-position = Vector2(184, 172)
+z_index = 1
+position = Vector2(156, 180)
 
 [node name="limit" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="limit"]
 polygon = PackedVector2Array(6, 33, 282, 33, 312, -24, -24, -24, -24, 504, 312, 504, 312, -24, 282, 33, 282, 477, 6, 477)
+
+[node name="chicken1" parent="." instance=ExtResource("3_ycayy")]
+position = Vector2(24, 123)
+
+[node name="chicken2" parent="." instance=ExtResource("3_ycayy")]
+position = Vector2(84, 123)
+
+[node name="chicken3" parent="." instance=ExtResource("4_y3j0m")]
+position = Vector2(21, 150)
+
+[node name="chicken4" parent="." instance=ExtResource("5_rurhu")]
+position = Vector2(45, 126)
+
+[node name="chicken5" parent="." instance=ExtResource("5_rurhu")]
+position = Vector2(66, 117)
+
+[node name="chicken6" parent="." instance=ExtResource("5_rurhu")]
+position = Vector2(57, 174)
+
+[node name="chicken7" parent="." instance=ExtResource("5_rurhu")]
+position = Vector2(42, 144)
+
+[node name="chicken8" parent="." instance=ExtResource("5_rurhu")]
+position = Vector2(15, 171)
+
+[node name="chicken9" parent="." instance=ExtResource("3_ycayy")]
+position = Vector2(63, 144)
+
+[node name="chicken10" parent="." instance=ExtResource("4_y3j0m")]
+position = Vector2(78, 150)
+
+[node name="sheep" parent="." instance=ExtResource("6_rurhu")]
+position = Vector2(96, 447)
+
+[node name="sheep2" parent="." instance=ExtResource("6_rurhu")]
+position = Vector2(213, 267)
+
+[node name="sheep3" parent="." instance=ExtResource("6_rurhu")]
+position = Vector2(189, 243)
+
+[node name="sheep4" parent="." instance=ExtResource("6_rurhu")]
+position = Vector2(279, 255)
+
+[node name="pig" parent="." instance=ExtResource("7_kk2rg")]
+position = Vector2(96, 285)
+
+[node name="pig2" parent="." instance=ExtResource("7_kk2rg")]
+position = Vector2(111, 261)
+
+[node name="pig3" parent="." instance=ExtResource("7_kk2rg")]
+position = Vector2(75, 252)
+
+[node name="pig_food" parent="." instance=ExtResource("10_mw25s")]
+position = Vector2(123, 219)
+
+[node name="coop" parent="." instance=ExtResource("12_rvs2r")]
+z_index = 1
+position = Vector2(60, 92)
+
+[node name="FarmingArea" parent="." instance=ExtResource("11_tqxxy")]
+position = Vector2(156, 396)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="buttonA" parent="CanvasLayer" instance=ExtResource("8_utbpp")]
+offset_left = 181.0
+offset_top = 421.0
+offset_right = 205.0
+offset_bottom = 445.0
+
+[node name="buttonB" parent="CanvasLayer" instance=ExtResource("9_mw25s")]
+offset_left = 227.0
+offset_top = 421.0
+offset_right = 251.0
+offset_bottom = 445.0
+
+[node name="joystick" parent="CanvasLayer" instance=ExtResource("14_mwyo0")]
+position = Vector2(67, 417)
+
+[node name="apple_tree" parent="." instance=ExtResource("3_5ay1a")]
+position = Vector2(241, 254)
+
+[node name="well" parent="." instance=ExtResource("15_ldkr4")]
+position = Vector2(240, 328)
+
+[node name="barn" parent="." instance=ExtResource("16_liy57")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(156, 151)

@@ -1,0 +1,138 @@
+[gd_scene load_steps=16 format=3 uid="uid://dxpxowe1fdssr"]
+
+[ext_resource type="Texture2D" uid="uid://b6jspi0q5qrnw" path="res://assets/sprites/tile.png" id="1_r5gye"]
+[ext_resource type="Script" uid="uid://dheyncj3575no" path="res://scripts/Chair.cs" id="2_oiusj"]
+[ext_resource type="Texture2D" uid="uid://7g5r206ua8me" path="res://assets/sprites/Milk.png" id="3_oiusj"]
+[ext_resource type="Texture2D" uid="uid://chu5hwwtut65q" path="res://assets/sprites/b popup.png" id="3_s0ubm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_027mj"]
+atlas = ExtResource("1_r5gye")
+region = Rect2(168, 240, 24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke7la"]
+size = Vector2(24, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0ubm"]
+atlas = ExtResource("3_oiusj")
+region = Rect2(0, 48, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms4al"]
+atlas = ExtResource("3_oiusj")
+region = Rect2(96, 24, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duap5"]
+atlas = ExtResource("3_oiusj")
+region = Rect2(48, 24, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lebxk"]
+atlas = ExtResource("3_oiusj")
+region = Rect2(0, 24, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chwbh"]
+atlas = ExtResource("3_oiusj")
+region = Rect2(96, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6tnp"]
+atlas = ExtResource("3_oiusj")
+region = Rect2(48, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y6js"]
+atlas = ExtResource("3_oiusj")
+region = Rect2(0, 0, 48, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsrrl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0ubm")
+}],
+"loop": true,
+"name": &"milk_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms4al")
+}],
+"loop": true,
+"name": &"milk_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duap5")
+}],
+"loop": true,
+"name": &"milk_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lebxk")
+}],
+"loop": true,
+"name": &"milk_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chwbh")
+}],
+"loop": true,
+"name": &"milk_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6tnp")
+}],
+"loop": true,
+"name": &"milk_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y6js")
+}],
+"loop": true,
+"name": &"milk_6",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiusj"]
+size = Vector2(40, 26)
+
+[node name="chair" type="Sprite2D"]
+texture = SubResource("AtlasTexture_027mj")
+script = ExtResource("2_oiusj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ke7la")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-10, 0)
+polygon = PackedVector2Array(7, 7, 7, 16, 13, 16, 13, 7)
+
+[node name="ButtonHint" type="Sprite2D" parent="Area2D"]
+z_index = 2
+position = Vector2(6, -46)
+texture = ExtResource("3_s0ubm")
+
+[node name="Milk" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(35, 4)
+sprite_frames = SubResource("SpriteFrames_vsrrl")
+animation = &"milk_6"
+frame_progress = 0.879736
+
+[node name="PickupArea" type="Area2D" parent="Milk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Milk/PickupArea"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_oiusj")

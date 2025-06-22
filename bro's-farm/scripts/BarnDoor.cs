@@ -1,0 +1,111 @@
+using Godot;
+using System; // Diperlukan untuk System.Threading.Tasks jika ada, tetapi tidak untuk BarnDoor ini.
+
+public partial class BarnDoor : Sprite2D
+{
+	private Area2D triggerArea;
+	private Sprite2D buttonHint;
+	private bool playerNearby = false;
+	private Tween hintTween;
+	private Vector2 hintStartPos;
+
+	public bool IsPlayerNearby => playerNearby;
+
+	[Export]
+	public string BarnScenePath = "res://scenes/barn_scene.tscn";
+
+	public override void _Ready()
+	{
+		triggerArea = GetNodeOrNull<Area2D>("Area2D");
+		buttonHint = GetNodeOrNull<Sprite2D>("Area2D/ButtonHint");
+
+		if (triggerArea == null) GD.PrintErr("Node Area2D tidak ditemukan di BarnDoor!");
+		if (buttonHint == null) GD.PrintErr("Node ButtonHint tidak ditemukan di BarnDoor/Area2D!");
+
+		if (buttonHint != null)
+		{
+			buttonHint.Visible = false;
+			hintStartPos = buttonHint.Position;
+		}
+
+		if (triggerArea != null)
+		{
+			triggerArea.BodyEntered += OnBodyEntered;
+			triggerArea.BodyExited += OnBodyExited;
+		}
+	}
+
+	private void OnBodyEntered(Node2D body)
+	{
+		if (body.Name == "Bro")
+		{
+			playerNearby = true;
+			ShowButtonHint();
+		}
+	}
+
+	private void OnBodyExited(Node2D body)
+	{
+		if (body.Name == "Bro")
+		{
+			playerNearby = false;
+			HideButtonHint();
+		}
+	}
+
+	private void ShowButtonHint()
+	{
+		if (buttonHint == null) return;
+		if (!buttonHint.Visible)
+		{
+			buttonHint.Visible = true;
+			StartHintAnimation();
+		}
+	}
+
+	private void HideButtonHint()
+	{
+		if (buttonHint == null) return;
+		if (buttonHint.Visible)
+		{
+			buttonHint.Visible = false;
+			StopHintAnimation();
+		}
+	}
+
+	private void StartHintAnimation()
+	{
+		if (hintTween != null && hintTween.IsRunning())
+		{
+			hintTween.Kill();
+			hintTween = null;
+		}
+
+		hintTween = GetTree().CreateTween();
+		hintTween.SetLoops();
+
+		hintTween.TweenProperty(buttonHint, "position:y", hintStartPos.Y - 2, 0.5f)
+			.SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.InOut);
+		hintTween.TweenProperty(buttonHint, "position:y", hintStartPos.Y + 2, 0.5f)
+			.SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.InOut);
+	}
+
+	private void StopHintAnimation()
+	{
+		if (hintTween != null && hintTween.IsRunning())
+		{
+			hintTween.Kill();
+			hintTween = null;
+		}
+		if (buttonHint != null)
+			buttonHint.Position = hintStartPos;
+	}
+
+	public void TryEnterBarn()
+	{
+		if (playerNearby)
+		{
+			GetTree().ChangeSceneToFile(BarnScenePath);
+		}
+	}
+}

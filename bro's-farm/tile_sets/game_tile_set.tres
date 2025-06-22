@@ -1,14 +1,17 @@
-[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://badqs3phx1qtw"]
+[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://badqs3phx1qtw"]
 
 [ext_resource type="Texture2D" uid="uid://csdxtogshty8y" path="res://assets/sprites/Object.png" id="1_0slug"]
 [ext_resource type="Texture2D" uid="uid://21jnlxxvd3bs" path="res://assets/sprites/Land.png" id="1_8au4d"]
-[ext_resource type="PackedScene" uid="uid://b0rdt418qjhf5" path="res://scenes/tree/apple_tree.tscn" id="3_0slug"]
+[ext_resource type="PackedScene" uid="uid://cg2uxmmn3f53y" path="res://scenes/tree/apple_tree.tscn" id="3_0slug"]
 [ext_resource type="Texture2D" uid="uid://c2iso70olejfs" path="res://assets/sprites/well.png" id="3_sbas4"]
-[ext_resource type="PackedScene" uid="uid://ckgkw84qq6mco" path="res://scenes/tree/coop.tscn" id="4_utiio"]
+[ext_resource type="PackedScene" uid="uid://c056mnlny5e2g" path="res://scenes/tree/coop.tscn" id="4_utiio"]
 [ext_resource type="PackedScene" uid="uid://skts7vn4ejig" path="res://scenes/tree/pond.tscn" id="4_ys2wm"]
 [ext_resource type="PackedScene" uid="uid://ctoyj3gql3axr" path="res://scenes/tree/barn.tscn" id="5_dinp7"]
 [ext_resource type="PackedScene" uid="uid://buqwugvp3vo17" path="res://scenes/tree/well.tscn" id="6_oxmut"]
+[ext_resource type="Texture2D" uid="uid://6lo0d0c0n11c" path="res://assets/sprites/coop.png" id="6_q212l"]
 [ext_resource type="PackedScene" uid="uid://crgnfqxki0c5f" path="res://scenes/tree/fence.tscn" id="7_htfhe"]
+[ext_resource type="Texture2D" uid="uid://duirvuf5rahsf" path="res://assets/sprites/Grass.png" id="11_dkh34"]
+[ext_resource type="Texture2D" uid="uid://b6jspi0q5qrnw" path="res://assets/sprites/tile.png" id="11_flyj8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dinp7"]
 texture = ExtResource("1_0slug")
@@ -21,6 +24,8 @@ texture_region_size = Vector2i(24, 24)
 13:1/0 = 0
 12:5/size_in_atlas = Vector2i(7, 6)
 12:5/0 = 0
+1:8/size_in_atlas = Vector2i(5, 3)
+1:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8au4d"]
 texture = ExtResource("1_8au4d")
@@ -149,13 +154,69 @@ texture_region_size = Vector2i(24, 24)
 2:2/0 = 0
 2:1/0 = 0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_onreu"]
+atlas = ExtResource("6_q212l")
+
+[sub_resource type="PackedScene" id="PackedScene_flyj8"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("coop", "y_sort_enabled", "position", "texture", "offset", "Sprite2D", "StaticBody2D", "CollisionPolygon2D", "polygon"),
+"node_count": 3,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 5, 0, -1, 4, 1, 0, 2, 1, 3, 2, 4, 3, 0, 0, 0, 6, 6, -1, 0, 0, 1, 0, 7, 7, -1, 3, 1, 0, 2, 4, 8, 5, 0),
+"variants": [true, Vector2(0, -17), SubResource("AtlasTexture_onreu"), Vector2(0, -10), Vector2(0, -1), PackedVector2Array(-27, -28, 17, -29, 17, -19, 33, -19, 33, 24, 13, 24, 8, 20, 0, 29, -16, 29, -23, 19, -28, 19)],
+"version": 3
+}
+
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_utiio"]
 scenes/1/scene = ExtResource("4_ys2wm")
 scenes/2/scene = ExtResource("3_0slug")
-scenes/3/scene = ExtResource("4_utiio")
+scenes/3/scene = SubResource("PackedScene_flyj8")
 scenes/4/scene = ExtResource("5_dinp7")
 scenes/5/scene = ExtResource("6_oxmut")
 scenes/6/scene = ExtResource("7_htfhe")
+scenes/7/scene = SubResource("PackedScene_flyj8")
+scenes/8/scene = ExtResource("4_utiio")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yvc82"]
+texture = ExtResource("11_dkh34")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dkh34"]
+texture = ExtResource("11_flyj8")
+texture_region_size = Vector2i(24, 24)
+6:7/size_in_atlas = Vector2i(2, 2)
+6:7/0 = 0
+8:7/size_in_atlas = Vector2i(2, 2)
+8:7/0 = 0
+10:7/size_in_atlas = Vector2i(2, 2)
+10:7/0 = 0
+7:10/0 = 0
+6:13/size_in_atlas = Vector2i(5, 3)
+6:13/0 = 0
+1:7/size_in_atlas = Vector2i(4, 2)
+1:7/0 = 0
+1:9/size_in_atlas = Vector2i(4, 2)
+1:9/0 = 0
+1:11/size_in_atlas = Vector2i(4, 2)
+1:11/0 = 0
+1:13/size_in_atlas = Vector2i(4, 2)
+1:13/0 = 0
+1:15/size_in_atlas = Vector2i(4, 2)
+1:15/0 = 0
+1:3/size_in_atlas = Vector2i(4, 2)
+1:3/0 = 0
+6:3/size_in_atlas = Vector2i(5, 2)
+6:3/0 = 0
+1:1/0 = 0
+2:1/0 = 0
 
 [resource]
 tile_size = Vector2i(24, 24)
@@ -163,3 +224,5 @@ sources/1 = SubResource("TileSetAtlasSource_8au4d")
 sources/0 = SubResource("TileSetAtlasSource_dinp7")
 sources/3 = SubResource("TileSetScenesCollectionSource_utiio")
 sources/2 = SubResource("TileSetAtlasSource_ys2wm")
+sources/6 = SubResource("TileSetAtlasSource_dkh34")
+sources/4 = SubResource("TileSetAtlasSource_yvc82")

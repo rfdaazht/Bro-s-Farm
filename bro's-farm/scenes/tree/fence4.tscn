@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0tt7q607ovae"]
+
+[ext_resource type="Texture2D" uid="uid://b6jspi0q5qrnw" path="res://assets/sprites/tile.png" id="1_kb74i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb74i"]
+atlas = ExtResource("1_kb74i")
+region = Rect2(24, 360, 96, 48)
+
+[node name="fence4" type="Sprite2D"]
+z_index = 1
+y_sort_enabled = true
+texture = SubResource("AtlasTexture_kb74i")
+offset = Vector2(0, -10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-12, -13)
+polygon = PackedVector2Array(-44, -16, 51, -16, 51, 3, -44, 3, -44, 12, 61, 12, 61, -21, -44, -21)

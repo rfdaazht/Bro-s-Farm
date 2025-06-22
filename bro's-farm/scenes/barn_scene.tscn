@@ -1,0 +1,122 @@
+[gd_scene load_steps=21 format=4 uid="uid://bg17oia77kc6p"]
+
+[ext_resource type="Script" uid="uid://w44e0vrj7m8b" path="res://scripts/BarnScene.cs" id="1_svnxx"]
+[ext_resource type="TileSet" uid="uid://badqs3phx1qtw" path="res://tile_sets/game_tile_set.tres" id="1_uojiq"]
+[ext_resource type="PackedScene" uid="uid://bmgfmad1vnggo" path="res://scenes/tree/fence2.tscn" id="2_bldel"]
+[ext_resource type="Texture2D" uid="uid://b6jspi0q5qrnw" path="res://assets/sprites/tile.png" id="3_n0web"]
+[ext_resource type="PackedScene" uid="uid://c11somxc307kj" path="res://scenes/tree/fence3.tscn" id="3_r78yq"]
+[ext_resource type="PackedScene" uid="uid://c0tt7q607ovae" path="res://scenes/tree/fence4.tscn" id="4_vao4l"]
+[ext_resource type="PackedScene" uid="uid://w1654rk706ct" path="res://scenes/character/cow3.tscn" id="5_r78yq"]
+[ext_resource type="PackedScene" uid="uid://b0b3nsji056nd" path="res://scenes/character/cow4.tscn" id="6_vao4l"]
+[ext_resource type="PackedScene" uid="uid://cgcs5gsjuqtx8" path="res://scenes/character/cow1.tscn" id="7_w14x4"]
+[ext_resource type="PackedScene" uid="uid://be6voitwpn8r5" path="res://scenes/character/cow2.tscn" id="8_0deyl"]
+[ext_resource type="PackedScene" uid="uid://ccp0bo2508gsw" path="res://scenes/tree/hay1.tscn" id="9_0w55o"]
+[ext_resource type="PackedScene" uid="uid://xnhhedk5eplr" path="res://scenes/tree/hay2.tscn" id="10_n8j86"]
+[ext_resource type="PackedScene" uid="uid://dxpxowe1fdssr" path="res://scenes/tree/chair.tscn" id="12_hwrp0"]
+[ext_resource type="PackedScene" uid="uid://dtl5fqfxin20i" path="res://scenes/tree/cow_food.tscn" id="13_hwrp0"]
+[ext_resource type="PackedScene" uid="uid://cumexyehb1iip" path="res://scenes/tree/door.tscn" id="14_ff3qp"]
+[ext_resource type="PackedScene" uid="uid://dob5w1a63txu2" path="res://scenes/character/bro.tscn" id="15_mevdv"]
+[ext_resource type="PackedScene" uid="uid://blj6ogi1wa5xc" path="res://scenes/buttonA.tscn" id="16_00kjy"]
+[ext_resource type="PackedScene" uid="uid://dmxn7gvt5haol" path="res://scenes/buttonB.tscn" id="17_svnxx"]
+[ext_resource type="PackedScene" uid="uid://bfsuy4rp20pur" path="res://scenes/joystick.tscn" id="19_i16mb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fallq"]
+atlas = ExtResource("3_n0web")
+region = Rect2(24, 168, 96, 48)
+
+[node name="barn_scene" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_svnxx")
+
+[node name="barn_dirt" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAABgABAAEAAAABAAAABgABAAEAAAACAAAABgABAAEAAAADAAAABgABAAEAAAAEAAAABgABAAEAAAAFAAAABgABAAEAAAAFAAEABgABAAEAAAAGAAEABgABAAEAAAAHAAEABgABAAEAAAAIAAEABgABAAEAAAAJAAEABgABAAEAAAAKAAEABgABAAEAAAALAAEABgABAAEAAAALAAAABgABAAEAAAAKAAAABgABAAEAAAAJAAAABgABAAEAAAAIAAAABgABAAEAAAAHAAAABgABAAEAAAAGAAAABgABAAEAAAAEAAEABgABAAEAAAADAAEABgABAAEAAAACAAEABgABAAEAAAABAAEABgABAAEAAAAAAAEABgABAAEAAAAAAAIABgABAAEAAAABAAIABgABAAEAAAACAAIABgABAAEAAAADAAIABgABAAEAAAAEAAIABgABAAEAAAAFAAIABgABAAEAAAAGAAIABgABAAEAAAAHAAIABgABAAEAAAAIAAIABgABAAEAAAAJAAIABgABAAEAAAAKAAIABgABAAEAAAAAAAMABgABAAEAAAABAAMABgABAAEAAAACAAMABgABAAEAAAADAAMABgABAAEAAAAEAAMABgABAAEAAAAFAAMABgABAAEAAAAGAAMABgABAAEAAAAHAAMABgABAAEAAAAIAAMABgABAAEAAAAJAAMABgABAAEAAAAKAAMABgABAAEAAAALAAMABgABAAEAAAALAAIABgABAAEAAAABABAABgABAAEAAAABABEABgABAAEAAAABABIABgABAAEAAAABABMABgABAAEAAAACABAABgABAAEAAAACABEABgABAAEAAAACABIABgABAAEAAAACABMABgABAAEAAAADABAABgABAAEAAAADABEABgABAAEAAAADABIABgABAAEAAAADABMABgABAAEAAAAEABAABgABAAEAAAAEABEABgABAAEAAAAEABIABgABAAEAAAAEABMABgABAAEAAAAFABAABgABAAEAAAAFABEABgABAAEAAAAFABIABgABAAEAAAAFABMABgABAAEAAAAGABAABgABAAEAAAAGABEABgABAAEAAAAGABIABgABAAEAAAAGABMABgABAAEAAAAHABAABgABAAEAAAAHABEABgABAAEAAAAHABIABgABAAEAAAAHABMABgABAAEAAAAIABAABgABAAEAAAAIABEABgABAAEAAAAIABIABgABAAEAAAAIABMABgABAAEAAAAJABAABgABAAEAAAAJABEABgABAAEAAAAJABIABgABAAEAAAAJABMABgABAAEAAAAKABAABgABAAEAAAAKABEABgABAAEAAAAKABIABgABAAEAAAAKABMABgABAAEAAAALABAABgABAAEAAAALABEABgABAAEAAAALABIABgABAAEAAAALABMABgABAAEAAAAAABAABgABAAEAAAAAABEABgABAAEAAAAAABIABgABAAEAAAAAABMABgABAAEAAAAAAAQABgABAAEAAAAAAAUABgABAAEAAAAAAAYABgABAAEAAAAAAAcABgABAAEAAAAAAAgABgABAAEAAAAAAAkABgABAAEAAAAAAAoABgABAAEAAAAAAAsABgABAAEAAAAAAAwABgABAAEAAAAAAA0ABgABAAEAAAAAAA4ABgABAAEAAAAAAA8ABgABAAEAAAALAAQABgABAAEAAAALAAUABgABAAEAAAALAAYABgABAAEAAAALAAcABgABAAEAAAALAAgABgABAAEAAAALAAkABgABAAEAAAALAAoABgABAAEAAAALAAsABgABAAEAAAALAAwABgABAAEAAAALAA0ABgABAAEAAAALAA4ABgABAAEAAAALAA8ABgABAAEAAAABAAQABgACAAEAAAABAAUABgACAAEAAAABAAYABgACAAEAAAABAAcABgACAAEAAAABAAgABgACAAEAAAABAAkABgACAAEAAAABAAoABgACAAEAAAABAAsABgACAAEAAAABAAwABgACAAEAAAABAA0ABgACAAEAAAABAA4ABgACAAEAAAABAA8ABgACAAEAAAACAAQABgACAAEAAAACAAUABgACAAEAAAACAAYABgACAAEAAAACAAcABgACAAEAAAACAAgABgACAAEAAAACAAkABgACAAEAAAACAAoABgACAAEAAAACAAsABgACAAEAAAACAAwABgACAAEAAAACAA0ABgACAAEAAAACAA4ABgACAAEAAAACAA8ABgACAAEAAAADAAQABgACAAEAAAADAAUABgACAAEAAAADAAYABgACAAEAAAADAAcABgACAAEAAAADAAgABgACAAEAAAADAAkABgACAAEAAAADAAoABgACAAEAAAADAAsABgACAAEAAAADAAwABgACAAEAAAADAA0ABgACAAEAAAADAA4ABgACAAEAAAADAA8ABgACAAEAAAAEAAQABgACAAEAAAAEAAUABgACAAEAAAAEAAYABgACAAEAAAAEAAcABgACAAEAAAAEAAgABgACAAEAAAAEAAkABgACAAEAAAAEAAoABgACAAEAAAAEAAsABgACAAEAAAAEAAwABgACAAEAAAAEAA0ABgACAAEAAAAEAA4ABgACAAEAAAAEAA8ABgACAAEAAAAFAAQABgACAAEAAAAFAAUABgACAAEAAAAFAAYABgACAAEAAAAFAAcABgACAAEAAAAFAAgABgACAAEAAAAFAAkABgACAAEAAAAFAAoABgACAAEAAAAFAAsABgACAAEAAAAFAAwABgACAAEAAAAFAA0ABgACAAEAAAAFAA4ABgACAAEAAAAFAA8ABgACAAEAAAAGAAQABgACAAEAAAAGAAUABgACAAEAAAAGAAYABgACAAEAAAAGAAcABgACAAEAAAAGAAgABgACAAEAAAAGAAkABgACAAEAAAAGAAoABgACAAEAAAAGAAsABgACAAEAAAAGAAwABgACAAEAAAAGAA0ABgACAAEAAAAGAA4ABgACAAEAAAAGAA8ABgACAAEAAAAHAAQABgACAAEAAAAHAAUABgACAAEAAAAHAAYABgACAAEAAAAHAAcABgACAAEAAAAHAAgABgACAAEAAAAHAAkABgACAAEAAAAHAAoABgACAAEAAAAHAAsABgACAAEAAAAHAAwABgACAAEAAAAHAA0ABgACAAEAAAAHAA4ABgACAAEAAAAHAA8ABgACAAEAAAAIAAQABgACAAEAAAAIAAUABgACAAEAAAAIAAYABgACAAEAAAAIAAcABgACAAEAAAAIAAgABgACAAEAAAAIAAkABgACAAEAAAAIAAoABgACAAEAAAAIAAsABgACAAEAAAAIAAwABgACAAEAAAAIAA0ABgACAAEAAAAIAA4ABgACAAEAAAAIAA8ABgACAAEAAAAJAAQABgACAAEAAAAJAAUABgACAAEAAAAJAAYABgACAAEAAAAJAAcABgACAAEAAAAJAAgABgACAAEAAAAJAAkABgACAAEAAAAJAAoABgACAAEAAAAJAAsABgACAAEAAAAJAAwABgACAAEAAAAJAA0ABgACAAEAAAAJAA4ABgACAAEAAAAJAA8ABgACAAEAAAAKAAQABgACAAEAAAAKAAUABgACAAEAAAAKAAYABgACAAEAAAAKAAcABgACAAEAAAAKAAgABgACAAEAAAAKAAkABgACAAEAAAAKAAoABgACAAEAAAAKAAsABgACAAEAAAAKAAwABgACAAEAAAAKAA0ABgACAAEAAAAKAA4ABgACAAEAAAAKAA8ABgACAAEAAAA=")
+tile_set = ExtResource("1_uojiq")
+
+[node name="shadow" type="TileMapLayer" parent="."]
+
+[node name="fence2" parent="." instance=ExtResource("2_bldel")]
+position = Vector2(72, 159)
+texture = SubResource("AtlasTexture_fallq")
+
+[node name="fence3" parent="." instance=ExtResource("3_r78yq")]
+position = Vector2(72, 207)
+texture = SubResource("AtlasTexture_fallq")
+
+[node name="fence4" parent="." instance=ExtResource("3_r78yq")]
+position = Vector2(72, 255)
+
+[node name="fence5" parent="." instance=ExtResource("3_r78yq")]
+position = Vector2(72, 303)
+
+[node name="fence6" parent="." instance=ExtResource("4_vao4l")]
+z_index = 0
+position = Vector2(72, 351)
+
+[node name="cow3" parent="." instance=ExtResource("5_r78yq")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(88, 168)
+
+[node name="cow4" parent="." instance=ExtResource("5_r78yq")]
+position = Vector2(88, 312)
+
+[node name="cow5" parent="." instance=ExtResource("6_vao4l")]
+position = Vector2(88, 216)
+
+[node name="cow6" parent="." instance=ExtResource("6_vao4l")]
+position = Vector2(88, 264)
+
+[node name="cow1" parent="." instance=ExtResource("7_w14x4")]
+position = Vector2(208, 182)
+
+[node name="cow2" parent="." instance=ExtResource("8_0deyl")]
+position = Vector2(208, 254)
+
+[node name="hay1" parent="." instance=ExtResource("9_0w55o")]
+position = Vector2(73, 96)
+
+[node name="hay2" parent="." instance=ExtResource("10_n8j86")]
+position = Vector2(168, 96)
+
+[node name="hay3" parent="." instance=ExtResource("10_n8j86")]
+position = Vector2(240, 96)
+
+[node name="chair" parent="." instance=ExtResource("12_hwrp0")]
+y_sort_enabled = true
+position = Vector2(202, 195)
+
+[node name="chair1" parent="." instance=ExtResource("12_hwrp0")]
+y_sort_enabled = true
+position = Vector2(202, 267)
+
+[node name="cow_food" parent="." instance=ExtResource("13_hwrp0")]
+position = Vector2(207, 352)
+
+[node name="door" parent="." instance=ExtResource("14_ff3qp")]
+position = Vector2(144, 372)
+
+[node name="Bro" parent="." instance=ExtResource("15_mevdv")]
+z_index = 1
+position = Vector2(144, 366)
+
+[node name="limit" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="limit"]
+polygon = PackedVector2Array(30, 102, 258, 102, 312, -24, -24, -24, -24, 504, 312, 504, 312, -24, 258, 102, 258, 378, 30, 378)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="buttonA" parent="CanvasLayer" instance=ExtResource("16_00kjy")]
+offset_left = 181.0
+offset_top = 421.0
+offset_right = 205.0
+offset_bottom = 445.0
+
+[node name="buttonB" parent="CanvasLayer" instance=ExtResource("17_svnxx")]
+offset_left = 227.0
+offset_top = 421.0
+offset_right = 251.0
+offset_bottom = 445.0
+
+[node name="joystick" parent="CanvasLayer" instance=ExtResource("19_i16mb")]
+position = Vector2(67, 417)
