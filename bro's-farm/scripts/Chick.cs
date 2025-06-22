@@ -1,15 +1,14 @@
-using Godot; // <<< Tambahkan ini
-using System; // Jika System digunakan
+using Godot;
+using System;
 
 public partial class Chick : AnimalBase
 {
 	public override void _Ready()
 	{
-		base._Ready(); // Call base _Ready to initialize anim, playerDetector, etc.
-		BaseMoveSpeed = 25f; // Set specific move speed for Chick
+		base._Ready();
+		BaseMoveSpeed = 25f;
 	}
 
-	// Override OnPlayerEntered specific to Chick's behavior (fleeing)
 	protected override void OnPlayerEntered(Node body)
 	{
 		if (body.Name == "Bro")
@@ -18,7 +17,7 @@ public partial class Chick : AnimalBase
 			Vector2 diff = GlobalPosition - player.GlobalPosition;
 			fleeDirection = diff.Normalized();
 			fleeTimer = fleeDuration;
-			isWalking = true; // Ensure they start moving to flee
+			isWalking = true;
 		}
 	}
 }

@@ -3,7 +3,7 @@ using System;
 
 public partial class AnimalBase : CharacterBody2D
 {
-	[Export] public float BaseMoveSpeed = 20f; // Default speed, can be overridden or used as a base
+	[Export] public float BaseMoveSpeed = 20f;
 	[Export] public float WalkDuration = 2f;
 	[Export] public float IdleDuration = 1.5f;
 
@@ -13,10 +13,9 @@ public partial class AnimalBase : CharacterBody2D
 	protected bool isWalking = true;
 	protected Random random = new Random();
 
-	protected float currentSpeed; // This will hold the actual speed for the current state
+	protected float currentSpeed;
 	private float collisionCooldown = 0f;
 
-	// Optional: for chickens, if player interaction is still relevant
 	protected Area2D playerDetector;
 	protected Node2D player;
 	protected float fleeTimer = 0f;
@@ -26,8 +25,7 @@ public partial class AnimalBase : CharacterBody2D
 	public override void _Ready()
 	{
 		anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		
-		// Only initialize player detector if it's present (e.g., for chickens)
+
 		if (HasNode("Area2D")) 
 		{
 			playerDetector = GetNode<Area2D>("Area2D");
@@ -43,11 +41,10 @@ public partial class AnimalBase : CharacterBody2D
 		stateTimer -= d;
 		collisionCooldown -= d;
 
-		// Flee logic (specific to Chickens, but can be in base if all animals might flee)
 		if (fleeTimer > 0f)
 		{
 			fleeTimer -= d;
-			Velocity = fleeDirection * BaseMoveSpeed * 1.5f; // Flee speed based on BaseMoveSpeed
+			Velocity = fleeDirection * BaseMoveSpeed * 1.5f;
 			MoveAndSlide();
 			PlayWalkAnimation(fleeDirection);
 			return;
@@ -68,11 +65,9 @@ public partial class AnimalBase : CharacterBody2D
 
 		if (isWalking)
 		{
-			Velocity = direction.Normalized() * currentSpeed; // Use currentSpeed
+			Velocity = direction.Normalized() * currentSpeed;
 			MoveAndSlide();
-
 			HandleCollisions();
-
 			PlayWalkAnimation(direction);
 		}
 		else
@@ -82,7 +77,6 @@ public partial class AnimalBase : CharacterBody2D
 		}
 	}
 
-	// This method can be overridden by child classes to set specific speeds
 	protected virtual void InitializeMovementState()
 	{
 		isWalking = random.Next(2) == 0;
@@ -96,11 +90,10 @@ public partial class AnimalBase : CharacterBody2D
 			direction = Vector2.Zero;
 	}
 
-	// Method to set currentSpeed and choose direction when starting to walk
 	protected virtual void StartWalking()
 	{
 		ChooseNewDirection();
-		currentSpeed = BaseMoveSpeed; // Default to BaseMoveSpeed, can be overridden
+		currentSpeed = BaseMoveSpeed;
 	}
 
 	protected virtual void ChooseNewDirection()
@@ -125,7 +118,7 @@ public partial class AnimalBase : CharacterBody2D
 		{
 			if (random.NextDouble() < 0.5)
 			{
-				StartWalking(); // Recalculate direction and speed
+				StartWalking();
 			}
 			else
 			{
@@ -148,7 +141,6 @@ public partial class AnimalBase : CharacterBody2D
 		}
 		else
 		{
-			// Simplified for vertical movement animation
 			anim.Play(dir.Y < 0 ? "idle_back" : "idle_front");
 		}
 	}
@@ -157,7 +149,6 @@ public partial class AnimalBase : CharacterBody2D
 	{
 		string currentAnim = anim.Animation.ToString();
 
-		// Ensure we only transition from "idle_" animations to "sb_" animations
 		if (currentAnim.StartsWith("idle_"))
 		{
 			switch (currentAnim)
@@ -166,14 +157,12 @@ public partial class AnimalBase : CharacterBody2D
 				case "idle_back": anim.Play("sb_back"); break;
 				case "idle_left": anim.Play("sb_left"); break;
 				case "idle_right": anim.Play("sb_right"); break;
-				default: anim.Play("sb_front"); break; // Fallback
+				default: anim.Play("sb_front"); break;
 			}
 		}
 	}
 
-	// Player detection logic (can be made virtual if not all animals have it)
 	protected virtual void OnPlayerEntered(Node body)
 	{
-		// This is specifically for chickens, pig and sheep won't use it unless overridden
 	}
 }

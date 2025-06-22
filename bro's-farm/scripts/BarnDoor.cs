@@ -1,5 +1,5 @@
 using Godot;
-using System; // Diperlukan untuk System.Threading.Tasks jika ada, tetapi tidak untuk BarnDoor ini.
+using System;
 
 public partial class BarnDoor : Sprite2D
 {

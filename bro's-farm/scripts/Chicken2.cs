@@ -1,5 +1,5 @@
-using Godot; // <<< Tambahkan ini
-using System; // Jika System digunakan
+using Godot;
+using System;
 
 public partial class Chicken2 : AnimalBase
 {
