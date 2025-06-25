@@ -14,10 +14,8 @@ public partial class Fence : FoodDispenserBase
 
 	public override void _Ready()
 	{
-		foodSprite = GetNodeOrNull<AnimatedSprite2D>("Grass"); // Pastikan ini menemukan Grass AnimatedSprite2D
+		foodSprite = GetNodeOrNull<AnimatedSprite2D>("Grass");
 
-		// Penting: Panggil base._Ready() setelah menginisialisasi foodSprite
-		// Karena base._Ready() akan menggunakan foodSprite untuk InitializeFoodAnimations dan lainnya.
 		base._Ready(); 
 
 		if (CowTarget != null)
@@ -33,12 +31,11 @@ public partial class Fence : FoodDispenserBase
 	{
 		currentIndex = 0;
 		foodStateReadyForInteraction = true;
-		ShowButtonHint(); // Ini akan memanggil animasi hint jika buttonHint ditemukan
+		ShowButtonHint();
 		
 		StartFoodDepletionMechanism();
 	}
 
-	// Perubahan di sini: 'public override'
 	public override void OnPlayerInteract()
 	{
 		if (!firstFeedDone)

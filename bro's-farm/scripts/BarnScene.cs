@@ -33,18 +33,6 @@ public partial class BarnScene : Node2D
 
 		playerJoystick = GetNodeOrNull<Joystick>("CanvasLayer/joystick");
 
-		if (fence2 == null) GD.PrintErr("Node fence2 tidak ditemukan!");
-		if (fence3 == null) GD.PrintErr("Node fence3 tidak ditemukan!");
-		if (fence4 == null) GD.PrintErr("Node fence4 tidak ditemukan!");
-		if (fence5 == null) GD.PrintErr("Node fence5 tidak ditemukan!");
-		if (chairInstance == null) GD.PrintErr("Node Chair 'chair' tidak ditemukan! Pastikan NodePath benar.");
-		if (chair1Instance == null) GD.PrintErr("Node Chair 'chair1' tidak ditemukan! Pastikan NodePath benar.");
-		if (doorInstance == null) GD.PrintErr("Node Door tidak ditemukan! Pastikan NodePath benar.");
-		if (buttonA == null) GD.PrintErr("Node buttonA tidak ditemukan di CanvasLayer!");
-		if (buttonB == null) GD.PrintErr("Node buttonB tidak ditemukan di CanvasLayer!");
-		if (playerJoystick == null) GD.PrintErr("Node joystick tidak ditemukan di CanvasLayer! Pastikan jalur NodePath benar.");
-
-
 		if (buttonA != null)
 		{
 			buttonA.Pressed += () =>

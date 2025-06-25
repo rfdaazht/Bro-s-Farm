@@ -19,7 +19,6 @@ public partial class Joystick : Area2D
 
 		if (joystickSprite == null)
 		{
-			GD.PrintErr("❌ Sprite2D joystick tidak ditemukan! Pastikan node Sprite2D bernama 'Sprite2D' adalah anak dari Joystick.");
 			SetProcessInput(false);
 			return;
 		}
@@ -46,7 +45,6 @@ public partial class Joystick : Area2D
 					if (localPos.Length() <= Radius)
 					{
 						isDragging = true;
-						GD.Print("Joystick ditekan.");
 					}
 				}
 				else
@@ -56,7 +54,6 @@ public partial class Joystick : Area2D
 						isDragging = false;
 						joystickSprite.Position = Vector2.Zero;
 						Direction = Vector2.Zero;
-						GD.Print("Joystick dilepas. Arah: " + Direction);
 					}
 				}
 			}
@@ -72,7 +69,6 @@ public partial class Joystick : Area2D
 				}
 				joystickSprite.Position = localPosition;
 				Direction = localPosition.Normalized();
-				GD.Print("Joystick diseret. Arah: " + Direction);
 			}
 		}
 		else if (@event is InputEventMouseButton mouseEvent)
@@ -85,7 +81,6 @@ public partial class Joystick : Area2D
 					if (localPos.Length() <= Radius)
 					{
 						isDragging = true;
-						GD.Print("Joystick diklik.");
 					}
 				}
 				else
@@ -95,7 +90,6 @@ public partial class Joystick : Area2D
 						isDragging = false;
 						joystickSprite.Position = Vector2.Zero;
 						Direction = Vector2.Zero;
-						GD.Print("Joystick dilepas. Arah: " + Direction);
 					}
 				}
 			}
@@ -111,7 +105,6 @@ public partial class Joystick : Area2D
 				}
 				joystickSprite.Position = localPosition;
 				Direction = localPosition.Normalized();
-				GD.Print("Joystick diseret (mouse). Arah: " + Direction);
 			}
 		}
 	}

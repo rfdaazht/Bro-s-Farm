@@ -24,8 +24,8 @@ public abstract partial class FoodDispenserBase : Sprite2D
 
 	public override void _Ready()
 	{
-		playerTrigger = GetNodeOrNull<Area2D>("Area2D"); // Pastikan ini ada
-		buttonHint = GetNodeOrNull<Sprite2D>("Area2D/ButtonHint"); // Pastikan ini ada
+		playerTrigger = GetNodeOrNull<Area2D>("Area2D");
+		buttonHint = GetNodeOrNull<Sprite2D>("Area2D/ButtonHint");
 
 		foodSprite = GetNodeOrNull<AnimatedSprite2D>("Grass");
 		if (foodSprite == null)
@@ -33,30 +33,20 @@ public abstract partial class FoodDispenserBase : Sprite2D
 			foodSprite = GetNodeOrNull<AnimatedSprite2D>("AnimatableBody2D/AnimatedSprite2D");
 		}
 		
-		if (foodSprite == null)
-		{
-			GD.PrintErr($"FoodDispenserBase: AnimatedSprite2D not found on {Name}. Make sure it's named 'Grass' or 'AnimatableBody2D/AnimatedSprite2D' or override FoodSpritePath.");
-			return;
-		}
-
 		InitializeFoodAnimations(); 
 		if (foodAnimations.Count > 0)
 		{
-			foodSprite.Play(foodAnimations[currentIndex]);
+			foodSprite?.Play(foodAnimations[currentIndex]);
 		}
 
-		if (playerTrigger != null && buttonHint != null) // Periksa keduanya
+		if (playerTrigger != null && buttonHint != null)
 		{
 			buttonHint.Visible = false;
 			hintStartPos = buttonHint.Position;
 			playerTrigger.BodyEntered += OnBodyEntered;
 			playerTrigger.BodyExited += OnBodyExited;
 		}
-		else
-		{
-			GD.PrintErr($"FoodDispenserBase: Area2D or ButtonHint not found on {Name}. Cannot initialize player trigger or hint.");
-		}
-
+	
 		InitialSetup();
 	}
 
@@ -80,7 +70,6 @@ public abstract partial class FoodDispenserBase : Sprite2D
 		StartFoodDepletionMechanism();
 	}
 
-	// Perubahan di sini: 'public virtual'
 	public virtual void OnPlayerInteract()
 	{
 		CancelAllOperations();
@@ -112,7 +101,7 @@ public abstract partial class FoodDispenserBase : Sprite2D
 	protected virtual void AddFoodLevel()
 	{
 		currentIndex++;
-		foodSprite.Play(foodAnimations[currentIndex]);
+		foodSprite?.Play(foodAnimations[currentIndex]);
 		foodStateReadyForInteraction = false;
 		UpdateHintVisibility();
 	}
@@ -125,7 +114,7 @@ public abstract partial class FoodDispenserBase : Sprite2D
 	protected virtual void RemoveFoodLevel()
 	{
 		currentIndex--;
-		foodSprite.Play(foodAnimations[currentIndex]);
+		foodSprite?.Play(foodAnimations[currentIndex]);
 		UpdateHintVisibility();
 	}
 
@@ -274,13 +263,12 @@ public abstract partial class FoodDispenserBase : Sprite2D
 			buttonHint.Position = hintStartPos;
 	}
 
-	// Perubahan di sini: Memastikan StartHintAnimation dipanggil
 	protected void ShowButtonHint()
 	{
 		if (buttonHint != null && !buttonHint.Visible)
 		{
 			buttonHint.Visible = true;
-			StartHintAnimation(); // <--- BARIS INI PENTING!
+			StartHintAnimation();
 		}
 	}
 

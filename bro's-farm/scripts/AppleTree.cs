@@ -21,9 +21,6 @@ public partial class AppleTree : Area2D
 		treeSprite = GetNode<AnimatedSprite2D>("TreeSprite");
 		buttonHint = GetNode<Sprite2D>("ButtonHint");
 
-		if (treeSprite == null) GD.PrintErr("Node TreeSprite tidak ditemukan di AppleTree!");
-		if (buttonHint == null) GD.PrintErr("Node ButtonHint tidak ditemukan di AppleTree!");
-
 		buttonHint.Visible = false;
 		hintStartPos = buttonHint.Position;
 
